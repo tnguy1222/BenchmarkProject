@@ -14,7 +14,7 @@
 		<!--Find Verse By Keyword-->
 	<div align="center">
 	<h:form>
-	Keyword: <h:inputText id="keyword" value="#{.keyword}" title=""/> <br/> <h:message for = "keyword"/> <br/>	
+	Keyword: <h:inputText id="keyword" value="#{verse.keyword}" title=""/> <br/> <h:message for = "keyword"/> <br/>	
 	
 	<h:commandButton  value="Find" action="#{FormController.keySubmit(keyword)}" />
 	

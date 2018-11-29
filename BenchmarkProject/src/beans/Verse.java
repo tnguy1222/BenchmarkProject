@@ -8,13 +8,14 @@ public class Verse {
 	int chapterNo;
 	int verseNo;
 	String verse = "";
+
 	
 	public Verse()
 	{
 		
 	}
 	
-	public Verse( String bookName, int chapter, int verseNo, String verse, int chapterNo)
+	public Verse( String bookName, int chapterNo , int verseNo, String verse)
 	{
 		super();
 		this.bookName = bookName;
@@ -55,6 +56,6 @@ public class Verse {
 		this.verse = verse;
 	}
 
-
 	
+
 }
