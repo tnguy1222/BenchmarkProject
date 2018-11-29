@@ -1,0 +1,29 @@
+CREATE TABLE benchmark.Bible(
+BOOK_NAME VARCHAR(25) NOT NULL, 
+CHAPTER INT NOT NULL, 
+VERSE_NO INT NOT NULL, 
+VERSE VARCHAR(250) NOT NULL);
+
+INSERT INTO benchmark.Bible(BOOK_NAME, CHAPTER, VERSE_NO,VERSE)
+VALUES ('Genisis',1,1,'In the begginging God created the heavens and the earth.');
+INSERT INTO benchmark.Bible(BOOK_NAME, CHAPTER, VERSE_NO,VERSE)
+VALUES ('Genisis',1,2,'Now the earth was formless and empty, darkness was over the surface of the deep, and the Spirit of God was hovering over the waters.');
+INSERT INTO benchmark.Bible(BOOK_NAME, CHAPTER, VERSE_NO,VERSE)
+VALUES ('Genisis',2,1,'Thus the heavens and the earth were completed in all their vast array.');
+INSERT INTO benchmark.Bible(BOOK_NAME, CHAPTER, VERSE_NO,VERSE)
+VALUES ('Genisis',2,2,'By the seventh day God had finished the work he had been doing; so on the seventh day he rested from all his work.');
+INSERT INTO benchmark.Bible(BOOK_NAME, CHAPTER, VERSE_NO,VERSE)
+VALUES ('John',1,1,'In the beginning was the Word, and the Word was with God, and the Word was God.');
+INSERT INTO benchmark.Bible(BOOK_NAME, CHAPTER, VERSE_NO,VERSE)
+VALUES ('Iasaih',1,1,'The vision concerning Judah and Jerusalem that Isaiah son of Amoz saw during the reigns of Uzziah, Jotham, Ahaz and Hezekiah, kings of Judah.');
+INSERT INTO benchmark.Bible(BOOK_NAME, CHAPTER, VERSE_NO,VERSE)
+VALUES ('Ezekiel',1,1,'In my thirtieth year, in the fourth month on the fifth day, while I was among the exiles by the Kebar River, the heavens were opened and I saw visions of God.');
+INSERT INTO benchmark.Bible(BOOK_NAME, CHAPTER, VERSE_NO,VERSE)
+VALUES ('Psalms',1,1,'Blessed is the one who does not walk in step with the wicked or stand in the way that sinners take or sit in the company of mockers,');
+INSERT INTO benchmark.Bible(BOOK_NAME, CHAPTER, VERSE_NO,VERSE)
+VALUES ('Psalms',3,1,'Lord, how many are my foes! How many rise up against me!');
+INSERT INTO benchmark.Bible(BOOK_NAME, CHAPTER, VERSE_NO,VERSE)
+VALUES ('Psalms',5,1,'Listen to my words, Lord, consider my lament.');
+
+SELECT * FROM benchmark.Bible;
+SELECT * FROM benchmark.BIBLE WHERE VERSE LIKE '%God%';
