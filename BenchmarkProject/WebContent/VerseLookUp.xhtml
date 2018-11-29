@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+<title>Find By Verse Number</title>
+</h:head> 
+<body> 
+	<ui:define name="title">JSF Login Page</ui:define>
+	<ui:define name="content">
+		<!--Find Verse By Keyword-->
+	<div align="center">
+	<h:form>
+	Book Name: <h:inputText id="bookName" value="#{verse.bookName}" title=""/> <br/> <h:message for = "bookName"/> <br/>	
+	Chapter Number: <h:inputText id="chapterNo" value="#{verse.chapterNo}" title=""/> <br/> <h:message for = "chapterNo"/> <br/>
+	Verse Number: <h:inputText id="verseNo" value="#{verse.verseNo}" title=""/> <br/> <h:message for = "verseNo"/> <br/>
+	
+	<h:commandButton  value="Find" action="#{FormController.infoSubmit( )}" />
+	
+	</h:form>
+	</div>
+	</ui:define>
+
+</body> 
+</html>
