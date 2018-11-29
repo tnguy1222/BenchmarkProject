@@ -18,7 +18,7 @@ public class Verses {
 	List<Verse> verses = new ArrayList<Verse>();
 	
 	public void init() {
-		verses = service.getVerses();
+		verses = service.getAllVerses();
 	}
 	
 	public List<Verse> getVerses(){

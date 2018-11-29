@@ -10,6 +10,7 @@ import beans.Verse;
 public interface VersesBusinessInterface {
 	
 	public void test();
-	public List<Verse> getVerses();
-	public void setVerses(List<Verse> verses);
+	public List<Verse> getAllVerses();
+	public Verse findVerse(String key);
+	public Verse getVerse(String book, int chapterNo, int verseNo);
 }

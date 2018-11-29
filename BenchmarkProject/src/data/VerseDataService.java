@@ -8,15 +8,21 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.Local;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
 
 import beans.Verse;
 
+@Stateless
+@Local(DataAccessInterface.class)
+@LocalBean
 public class VerseDataService implements DataAccessInterface<Verse> {
 
 	@Override
 	public List<Verse> findAll() {
 		Connection conn = null;
-		String url = "jdbc:mysql://localhost:3308/benchmark";
+		String url = "jdbc:mysql://localhost:8889/benchmark";
 		String username = "root";
 		String password = "root";
 		String sql = "SELECT * FROM benchmark.Bible";
@@ -44,7 +50,7 @@ public class VerseDataService implements DataAccessInterface<Verse> {
 	@Override
 	public Verse findByKey(String word) {
 		Connection conn = null;
-		String url = "jdbc:mysql://localhost:3308/benchmark";
+		String url = "jdbc:mysql://localhost:8889/benchmark";
 		String username = "root";
 		String password = "root";
 		String sql = "SELECT * FROM benchmark.Bible WHERE VERSE LIKE '%"+word+"%'";
@@ -73,7 +79,7 @@ public class VerseDataService implements DataAccessInterface<Verse> {
 	@Override
 	public Verse findByOther(String bookName, int chapterNo, int verseNo) {
 		Connection conn = null;
-		String url = "jdbc:mysql://localhost:3308/benchmark";
+		String url = "jdbc:mysql://localhost:8889/benchmark";
 		String username = "root";
 		String password = "root";
 		String sql = "SELECT * FROM benchmark.Bible WHERE BOOK='"+ bookName +"',CHAPTER='"+ chapterNo +"',VERSE_NO='"+ verseNo +"'";

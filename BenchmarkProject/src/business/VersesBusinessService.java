@@ -2,6 +2,7 @@ package business;
 
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Alternative;
@@ -15,7 +16,7 @@ import data.DataAccessInterface;
 @Alternative
 public class VersesBusinessService implements VersesBusinessInterface{
 
-	@Inject 
+	@EJB
 	DataAccessInterface<Verse> verseDataService;
 
 	@Override
@@ -25,14 +26,22 @@ public class VersesBusinessService implements VersesBusinessInterface{
 	}
 
 	@Override
-	public List<Verse> getVerses() {
+	public List<Verse> getAllVerses() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setVerses(List<Verse> verses) {
+	public Verse findVerse(String key) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
+
+	@Override
+	public Verse getVerse(String bookName, int chapterNo, int verseNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 }
