@@ -8,5 +8,6 @@ public interface DataAccessInterface <T>{
 
 	public List<T> findAll();
 	public T findByKey(Key word);
+	public int findInstances(Key word);
 	public T findByOther (String bookName, int chapterNo, int verseNo);
 }

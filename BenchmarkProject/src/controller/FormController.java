@@ -24,10 +24,11 @@ public class FormController {
 		return "VerseDetail.xhtml";
 	}
 	
-	public String infoSubmit()
-	{
+	public String infoSubmit(String book, int chapter,int verseNo)
+	{	
 		
-		return "VerseLookUp.xhtml";
+		service.getVerse(book, chapter, verseNo);
+		return "VerseLookUpResponse.xhtml";
 	}
 	
 	public VersesBusinessInterface<Verse> getService() 

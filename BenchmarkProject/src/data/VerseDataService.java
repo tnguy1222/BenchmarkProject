@@ -51,7 +51,7 @@ public class VerseDataService implements DataAccessInterface<Verse> {
 
 	@Override
 	public Verse findByKey(Key word) {
-		System.out.println("===========> findAll() being called in VerseDataService");
+		System.out.println("===========> findByKey() being called in VerseDataService");
 		Connection conn = null;
 		String url = "jdbc:mysql://localhost:3308/benchmark";
 		String username = "root";
@@ -69,6 +69,7 @@ public class VerseDataService implements DataAccessInterface<Verse> {
 				//System.out.println(String.format("ID is %d for Product %s at a price of %f", rs.getInt("ID"),rs.getString("PRODUCT_NAME"),rs.getFloat("Price")));
 			}
 			//clean up result set
+			System.out.println(verses.size());
 			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -86,7 +87,7 @@ public class VerseDataService implements DataAccessInterface<Verse> {
 		String url = "jdbc:mysql://localhost:3308/benchmark";
 		String username = "root";
 		String password = "root";
-		String sql = "SELECT * FROM benchmark.Bible WHERE BOOK='"+ bookName +"',CHAPTER='"+ chapterNo +"',VERSE_NO='"+ verseNo +"'";
+		String sql = "SELECT * FROM benchmark.Bible WHERE BOOK_NAME ='"+ bookName +"' AND CHAPTER="+ chapterNo +" AND VERSE_NO="+ verseNo +"";
 		List<Verse> verses = new ArrayList<Verse>();
 		// TODO Auto-generated method stub
 		try {
@@ -107,6 +108,37 @@ public class VerseDataService implements DataAccessInterface<Verse> {
 		
 		System.out.println("==========> From VerseDAO findByOther() verse is "+ verses.get(0));
 		return verses.get(0);
+	}
+
+	@Override
+	public int findInstances(Key word) {
+		System.out.println("===========> findByKey() being called in VerseDataService");
+		Connection conn = null;
+		String url = "jdbc:mysql://localhost:3308/benchmark";
+		String username = "root";
+		String password = "root";
+		String sql = "SELECT * FROM benchmark.Bible WHERE VERSE LIKE '%"+word.getKey()+"%'";
+		List<Verse> verses = new ArrayList<Verse>();
+		// TODO Auto-generated method stub
+		try {
+			conn=DriverManager.getConnection(url,username,password);
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				verses.add(new Verse(rs.getString("BOOK_NAME"),rs.getInt("CHAPTER"),rs.getInt("VERSE_NO"),rs.getString("VERSE")));
+				//System.out.println(String.format("ID is %d for Product %s at a price of %f", rs.getInt("ID"),rs.getString("PRODUCT_NAME"),rs.getFloat("Price")));
+			}
+			//clean up result set
+			System.out.println(verses.size());
+			rs.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("==========> From VerseDAO findByKey() verse is "+ verses.get(0));
+		return verses.size();
+		
 	}
 
 }

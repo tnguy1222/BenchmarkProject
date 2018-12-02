@@ -45,4 +45,10 @@ public class VerseBusinessService implements VersesBusinessInterface<Verse>{
 		return verseDataService.findByOther(book, chapter, verseNo);
 	}
 
+	@Override
+	public int findInstances(Key key) {
+		// TODO Auto-generated method stub
+		return verseDataService.findInstances(key);
+	}
+
 }
