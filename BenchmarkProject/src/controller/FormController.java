@@ -2,8 +2,11 @@ package controller;
 
 import javax.annotation.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
+import beans.Key;
+import beans.Verse;
 import business.VersesBusinessInterface;
 
 @ManagedBean
@@ -11,21 +14,23 @@ import business.VersesBusinessInterface;
 public class FormController {
 	
 	@Inject
-	VersesBusinessInterface service;
+	VersesBusinessInterface<Verse> service;
 	
-	public String keySubmit() 
+	public String keySubmit(Key keyword) 
 	{
 		
+		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("keyword", keyword);
+		service.findVerse(keyword);
 		return "VerseDetail.xhtml";
 	}
 	
 	public String infoSubmit()
 	{
 		
-		return "VerseLookUP.xhtml";
+		return "VerseLookUp.xhtml";
 	}
 	
-	public VersesBusinessInterface getService() 
+	public VersesBusinessInterface<Verse> getService() 
 	{
 		return service;
 	}

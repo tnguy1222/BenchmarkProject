@@ -14,7 +14,7 @@ import business.VersesBusinessInterface;
 public class Verses {
 
 	@Inject
-	VersesBusinessInterface service;
+	VersesBusinessInterface<Verse> service;
 	List<Verse> verses = new ArrayList<Verse>();
 	
 	public void init() {

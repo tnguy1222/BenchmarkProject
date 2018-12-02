@@ -12,6 +12,7 @@ import javax.ejb.Local;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
+import beans.Key;
 import beans.Verse;
 
 @Stateless
@@ -21,6 +22,7 @@ public class VerseDataService implements DataAccessInterface<Verse> {
 
 	@Override
 	public List<Verse> findAll() {
+		System.out.println("===========> findAll() being called in VerseDataService");
 		Connection conn = null;
 		String url = "jdbc:mysql://localhost:3308/benchmark";
 		String username = "root";
@@ -34,7 +36,7 @@ public class VerseDataService implements DataAccessInterface<Verse> {
 			ResultSet rs = stmt.executeQuery(sql);
 			
 			while(rs.next()) {
-				verses.add(new Verse(rs.getString("BOOK"),rs.getInt("CHAPTER"),rs.getInt("VERSE_NO"),rs.getString("VERSE")));
+				verses.add(new Verse(rs.getString("BOOK_NAME"),rs.getInt("CHAPTER"),rs.getInt("VERSE_NO"),rs.getString("VERSE")));
 				//System.out.println(String.format("ID is %d for Product %s at a price of %f", rs.getInt("ID"),rs.getString("PRODUCT_NAME"),rs.getFloat("Price")));
 			}
 			//clean up result set
@@ -48,12 +50,13 @@ public class VerseDataService implements DataAccessInterface<Verse> {
 	}
 
 	@Override
-	public Verse findByKey(String word) {
+	public Verse findByKey(Key word) {
+		System.out.println("===========> findAll() being called in VerseDataService");
 		Connection conn = null;
 		String url = "jdbc:mysql://localhost:3308/benchmark";
 		String username = "root";
 		String password = "root";
-		String sql = "SELECT * FROM benchmark.Bible WHERE VERSE LIKE '%"+word+"%'";
+		String sql = "SELECT * FROM benchmark.Bible WHERE VERSE LIKE '%"+word.getKey()+"%'";
 		List<Verse> verses = new ArrayList<Verse>();
 		// TODO Auto-generated method stub
 		try {
@@ -62,7 +65,7 @@ public class VerseDataService implements DataAccessInterface<Verse> {
 			ResultSet rs = stmt.executeQuery(sql);
 			
 			while(rs.next()) {
-				verses.add(new Verse(rs.getString("BOOK"),rs.getInt("CHAPTER"),rs.getInt("VERSE_NO"),rs.getString("VERSE")));
+				verses.add(new Verse(rs.getString("BOOK_NAME"),rs.getInt("CHAPTER"),rs.getInt("VERSE_NO"),rs.getString("VERSE")));
 				//System.out.println(String.format("ID is %d for Product %s at a price of %f", rs.getInt("ID"),rs.getString("PRODUCT_NAME"),rs.getFloat("Price")));
 			}
 			//clean up result set
@@ -78,6 +81,7 @@ public class VerseDataService implements DataAccessInterface<Verse> {
 
 	@Override
 	public Verse findByOther(String bookName, int chapterNo, int verseNo) {
+		System.out.println("===========> findAll() being called in VerseDataService");
 		Connection conn = null;
 		String url = "jdbc:mysql://localhost:3308/benchmark";
 		String username = "root";
@@ -91,7 +95,7 @@ public class VerseDataService implements DataAccessInterface<Verse> {
 			ResultSet rs = stmt.executeQuery(sql);
 			
 			while(rs.next()) {
-				verses.add(new Verse(rs.getString("BOOK"),rs.getInt("CHAPTER"),rs.getInt("VERSE_NO"),rs.getString("VERSE")));
+				verses.add(new Verse(rs.getString("BOOK_NAME"),rs.getInt("CHAPTER"),rs.getInt("VERSE_NO"),rs.getString("VERSE")));
 				//System.out.println(String.format("ID is %d for Product %s at a price of %f", rs.getInt("ID"),rs.getString("PRODUCT_NAME"),rs.getFloat("Price")));
 			}
 			//clean up result set

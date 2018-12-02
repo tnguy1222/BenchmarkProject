@@ -10,7 +10,7 @@
 
 </h:head> 
 <body> 
-	
+	<ui:composition template="/layouts/commonLayout.xhtml"> 
 	<ui:define name="title">JSF Login Page</ui:define>
 	<ui:define name="content">
 		<!--Home Page-->
@@ -19,12 +19,12 @@
 	Welcome user <br/>
 	Please select options available below to find verse : <br/>
 	
-	<h:commandButton value="By Keyword" action="#{FormController.keySubmit()}"/><br/>
-	<h:commandButton value="By Verse Number" action="#{FormController.infoSubmit()}"/><br/>
+	<a href="http://localhost:8080/BenchmarkProject/VerseDetail.xhtml"> By Keyword</a> <br/>
+	<a href="http://localhost:8080/BenchmarkProject/LookUp.xhtml"> By Information</a>	<br/>
 	
 	</h:form>
 	</div>
 	</ui:define>
-
+	</ui:composition>
 </body> 
 </html>

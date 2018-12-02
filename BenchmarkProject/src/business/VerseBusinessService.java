@@ -8,20 +8,17 @@ import javax.ejb.Stateless;
 import javax.enterprise.inject.Alternative;
 import javax.inject.Inject;
 
+import beans.Key;
 import beans.Verse;
 import data.DataAccessInterface;
 
 @Stateless
 @Local(VersesBusinessInterface.class)
 @Alternative
-public class VersesBusinessService implements VersesBusinessInterface{
+public class VerseBusinessService implements VersesBusinessInterface<Verse>{
 
-<<<<<<< HEAD
 	// Was @Enject but was asking us to suppress warnings to we used @EJB instead
-	@EJB 
-=======
-	@EJB
->>>>>>> 68628fbe92cd909a0c827f3911121e03000d3399
+	@Inject
 	DataAccessInterface<Verse> verseDataService;
 
 	@Override
@@ -33,27 +30,19 @@ public class VersesBusinessService implements VersesBusinessInterface{
 	@Override
 	public List<Verse> getAllVerses() {
 		// TODO Auto-generated method stub
-		return null;
+		return verseDataService.findAll();
 	}
 
 	@Override
-	public Verse findVerse(String key) {
+	public Verse findVerse(Key key) {
 		// TODO Auto-generated method stub
-		return null;
+		return verseDataService.findByKey(key);
 	}
 
 	@Override
-<<<<<<< HEAD
 	public Verse getVerse(String book, int chapter, int verseNo) {
-=======
-	public Verse getVerse(String bookName, int chapterNo, int verseNo) {
->>>>>>> 68628fbe92cd909a0c827f3911121e03000d3399
 		// TODO Auto-generated method stub
-		return null;
+		return verseDataService.findByOther(book, chapter, verseNo);
 	}
 
-<<<<<<< HEAD
-=======
-	
->>>>>>> 68628fbe92cd909a0c827f3911121e03000d3399
 }

@@ -9,17 +9,19 @@
 </h:head> 
 <body> 
 	
+	<ui:composition template="/layouts/commonLayout.xhtml"> 
 	<ui:define name="title">JSF Login Page</ui:define>
 	<ui:define name="content">
 		<!--Find Verse By Keyword-->
 	<div align="center">
 	<h:form>
-	Keyword: <h:inputText id="keyword" value="#{.keyword}" title=""/> <br/> <h:message for = "keyword"/> <br/>	
+	Keyword: <h:inputText id="keyWord" value="#{key.key}" title=""/> <br/> <h:message for = "keyWord"/> <br/>	
 	
-	<h:commandButton  value="Find" action="#{FormController.keySubmit(keyword)}" />
+	<h:commandButton  value="Find" action="#{FormController.keySubmit(key)}" />
 	
 	</h:form>
 	</div>
 	</ui:define>
+	</ui:composition>
 </body> 
 </html>
